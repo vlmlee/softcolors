@@ -414,7 +414,12 @@ a {
 
 .a {
   background-color: #FF6600;
-  animation: fadeOut 2s forwards ease; }
+  animation: fadeOut 2s forwards ease;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  backface-visibility: hidden;
+  perspective: 1000; }
 
 .b {
   background-color: #18AF90;
