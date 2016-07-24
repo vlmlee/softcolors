@@ -2,6 +2,11 @@
 // @import "grid-settings";
 @import "../../lib/neat/neat";
 @import "button-styles";
+
+/*-------------------*\
+        #FONTS
+\*-------------------*/
+
 @font-face {
     font-family: Intro;
     src: local("Intro"), url("../fonts/IntroInline.otf");
@@ -16,6 +21,11 @@
     font-family: Montserrat;
     src: local("Montserrat"), url("../fonts/Montserrat-Regular.otf");
 }
+
+
+/*-------------------*\
+     #MAINLAYOUT
+\*-------------------*/
 
 body {
     font: 14px Montserrat, Helvetica, Arial, sans-serif;
@@ -37,26 +47,6 @@ a {
     &:hover {
         color: #21333C;
     }
-}
-
-.nav {
-    @include outer-container();
-    a {
-        @include span-columns(3);
-        @include pad();
-    }
-}
-
-.push-one {
-    @include shift(1);
-}
-
-.right-align {
-    text-align: right;
-}
-
-.center-align {
-    text-align: center;
 }
 
 .hero-header {
@@ -88,6 +78,7 @@ a {
     }
 }
 
+// Size changes for "Softcolors" header
 .softcolors {
     margin-bottom: 30px;
     h1 {
@@ -117,11 +108,59 @@ a {
     }
 }
 
-.contentwrapper {
+
+/*-------------------*\
+        #NAV
+\*-------------------*/
+
+.nav {
+    @include outer-container();
+    a {
+        @include span-columns(3);
+        @include pad();
+    }
+}
+
+.push-one {
+    @include shift(1);
+}
+
+.right-align {
+    text-align: right;
+}
+
+.center-align {
+    text-align: center;
+}
+
+
+/*-------------------*\
+        #CONTENT
+\*-------------------*/
+
+.content {
     @include outer-container();
     height: 100%;
     width: 100%;
 }
+
+
+/*-------------------*\
+        #CONVERT
+\*-------------------*/
+
+.colorbox {
+    background-color: #000;
+}
+
+.softcolorbox {
+    background-color: #eee;
+}
+
+
+/*-------------------*\
+        #CHOOSE
+\*-------------------*/
 
 .colors {
     .block {
@@ -132,15 +171,24 @@ a {
         @include span-columns(2);
         height: 100%;
         border: 3px #fefefe solid;
+        transform: translateZ(0);
+        &:hover {
+            box-shadow: inset 0 0 2px 2px #ffffff;
+        }
     }
 }
 
-.row-one {
+.colorCode {
+    display: none;
+    color: #000;
+}
+
+.row-1 {
     height: 20%;
     margin-bottom: 30px;
 }
 
-.row-two {
+.row-2 {
     height: 20%;
 }
 
@@ -151,6 +199,58 @@ a {
         @include span-columns(4);
     }
 }
+
+.row-1 {
+    .box1 {
+        background-color: #FF6600;
+        animation: fadeOut 2s forwards ease;
+        -webkit-backface-visibility: hidden;
+        -webkit-perspective: 1000;
+        backface-visibility: hidden;
+        perspective: 1000;
+    }
+    .box2 {
+        background-color: #18AF90;
+        animation: fadeIn 2s forwards ease;
+    }
+    .box3 {
+        background-color: #2F9BB7;
+    }
+    .box4 {
+        background-color: #FFD65A;
+    }
+    .box5 {
+        background-color: #FF884D;
+    }
+}
+
+.row-2 {
+    .box1 {
+        background-color: #9CABE4;
+    }
+    .box2 {
+        background-color: #DADADA;
+    }
+    .box3 {
+        background-color: #81B9C3;
+    }
+    .box4 {
+        background-color: #FC7D74;
+    }
+    .box5 {
+        background-color: #4A5269;
+    }
+}
+
+
+/*-------------------*\
+        #RANDOM
+\*-------------------*/
+
+
+/*-------------------*\
+      #SECTION2
+\*-------------------*/
 
 .page-2-wrapper {
     @include outer-container();
@@ -217,53 +317,10 @@ a {
     }
 }
 
-// TESTS //
-.a {
-    background-color: #FF6600;
-    animation: fadeOut 2s forwards ease;
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    -webkit-perspective: 1000;
-    backface-visibility: hidden;
-    perspective: 1000;
-}
 
-.b {
-    background-color: #18AF90;
-    animation: fadeIn 2s forwards ease;
-}
-
-.c {
-    background-color: #2F9BB7;
-}
-
-.d {
-    background-color: #FFD65A;
-}
-
-.e {
-    background-color: #FF884D;
-}
-
-.f {
-    background-color: #9CABE4;
-}
-
-.g {
-    background-color: #DADADA;
-}
-
-.h {
-    background-color: #81B9C3;
-}
-
-.i {
-    background-color: #FC7D74;
-}
-
-.j {
-    background-color: #4A5269;
-}
+/*-------------------*\
+      #ANIMATIONS
+\*-------------------*/
 
 @keyframes fadeOut {
     0% {

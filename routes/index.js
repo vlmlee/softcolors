@@ -2,16 +2,27 @@ var express = require('express');
 var router = express.Router();
 var tinycolor = require('tinycolor2');
 var _ = require('underscore');
+var path = require('path');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('index', { title: 'SoftColors.io' });
 });
 
-router.post('/convert', function(req, res, next) {
-    var inputColor = req.body.color;
-    var convertedColor = tinycolor(inputColor).desaturate(25).lighten(25).toHexString;
-    res.send(convertedColor);
+router.get('/convert', function(req, res, next) {
+    res.sendFile('convert-form.hbs', {
+        root: path.join(__dirname, '../views')
+    });
+});
+
+router.post('/convertColor', function(req, res, next) {
+    var colors = {};
+    var inputColor = req.body.hex || req.body.rgb;
+    colors.hex = tinycolor(inputColor).toHexString();
+    colors.rgb = tinycolor(inputColor).toRgbString();
+    colors.softRgb = tinycolor(inputColor).desaturate(20).lighten(20).toRgbString();
+    colors.softHex = tinycolor(inputColor).desaturate(20).lighten(20).toHexString();
+    res.json(colors);
 });
 
 router.get('/choose', function(req, res, next) {
@@ -28,7 +39,9 @@ router.get('/choose', function(req, res, next) {
         '#FC7D74'
     ];
 
-    res.json(preselectedColors);
+    res.sendFile('color-blocks.hbs', {
+        root: path.join(__dirname, '../views')
+    });
 });
 
 router.get('/random', function(req, res, next) {

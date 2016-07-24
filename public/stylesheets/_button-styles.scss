@@ -1,22 +1,17 @@
-/*------------------*\
-    #BUTTONSTYLES
-\*------------------*/
-
-
 /* Common button styles */
 
 button {
     @media(max-width: 840px) {
         width: 120px;
-        height: 50px;
+        height: 40px;
     }
     @media(max-width: 640px) {
         width: 100px;
-        height: 50px;
+        height: 35px;
     }
     @media(max-width: 504px) {
         width: 80px;
-        height: 50px;
+        height: 25px;
     }
 }
 
