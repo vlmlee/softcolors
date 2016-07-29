@@ -7,64 +7,119 @@
 
     <!-- first section - main -->
     <div class="section">
-        <div class="wrapper">
-            <div class="nav">
-                <div class="push-one"> <a href="/" class="home-link">
-                        SoftColors.io
-                    </a></div>
-                <div>
-                    <a></a>
-                </div>
-                <div class="right-align about"><a id="about" href="#about">
-                        About
-                    </a></div>
-                <div class="push-one center-align"><a href="http://github.com">
-                        Github
-                    </a></div>
+
+
+        <!-- navigation -->
+        <div class="nav">
+            <div class="shift">
+                <a href="/">
+                    SoftColors.io
+                </a>
             </div>
-
-            <hr color="#eeeeee" width="100%">
-
-
-            <!-- header with logo -->
-            <div class="hero-header">
-                <!-- animate heading with colors -->
-                <div class="softcolors">
-                    <h1>S<span class="smaller">oft</span> C<span class="smaller">olors</span>
-                    </h1>
-                </div>
-
-
-                <!--- buttons -->
-                <div class="choices">
-                    <h1><button class="options button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" data-text="Convert" data-action="convert"><span>Convert</span></button></h1>
-                    <h1><button class="options button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" data-text="Choose" data-action="chooseColor"><span>Choose</span></button></h1>
-                    <h1><button class="options button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" data-text="Random" data-action="chooseRandomColor"><span>Random</span></button></h1>
-                </div>
-
-
-                <div class="content">
-                    <!-- content will appear here -->
-                </div>
+            <div>
+                <a>
+                </a>
+            </div>
+            <div class="right-align">
+                <a id="about">
+                    About
+                </a>
+            </div>
+            <div class="shift center-align">
+                <a href="http://github.com">
+                    Github
+                </a>
             </div>
         </div>
+        <!-- /navigation -->
+
+
+        <hr color="#eeeeee" width="100%">
+
+
+        <div class="hero-header">
+            <!-- header with logo -->
+            <!-- animate heading with colors -->
+            <div class="header-logo">
+                <h1>S<span class="smaller">oft</span> C<span class="smaller">olors</span>
+                    </h1>
+            </div>
+
+
+            <!--- top buttons -->
+            <div class="top-buttons">
+                <h1><button class="options button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" data-text="Convert" data-action="convert"><span>Convert</span></button></h1>
+                <h1><button class="options button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" data-text="Choose" data-action="choose"><span>Choose</span></button></h1>
+                <h1><button class="options button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" data-text="Random" data-action="random"><span>Random</span></button></h1>
+            </div>
+            <!-- /buttons -->
+
+
+            <div class="content">
+                <!-- content will appear here -->
+                <div class="shift">
+
+
+                    <!-- input colors -->
+                    <form id="inputColorForm" name="inputColorForm" method="post">
+                        <label for="hex">Hex</label>
+                        <input type="text" name="hex" value="" />
+                        <label for="RBG">RBG</label>
+                        <input type="text" name="rgb" value="" />
+                        <button type="submit" name="submit">submit</button>
+                    </form>
+                    <!-- /input -->
+
+
+                    <button class="clear" name="clear">clear</button>
+
+
+                    <!-- output colors -->
+                    <form id="outputColorForm" name="outputColorForm">
+                        <label for="soft-hex">Soft Hex</label>
+                        <input name="soft-hex" value="" />
+                        <label for="soft-rgb">Soft RGB</label>
+                        <input name="soft-rgb" value="" />
+                    </form>
+                    <!-- /output -->
+                </div>
+
+
+                <div class="color-boxes row-1">
+                    <li class="empty-box">
+                    </li>
+                    <li class="box convert-color-box">
+                        <p class="color-code">color</p>
+                    </li>
+                    <li class="box convert-soft-color-box">
+                        <p class="color-code">color</p>
+                    </li>
+                    <li class="empty-box">
+                    </li>
+                </div>
+
+            </div>
+
+        </div>
     </div>
+    <!-- /main -->
 
 
     <!-- second section - about -->
     <div class="section">
         <div class="page-2-wrapper">
-            <div class="desc">
-                <div class="block-one">
-                </div>
+            <div class="why">
                 <h1>Why?</h1>
                 <p>Don't you just hate it when you have an oversaturated color?</p>
             </div>
-            <div class="desc-about">
+            <div class="about">
                 <h1>About</h1>
-                <p>This is a simple app utilizing the <a href="https://github.com/bgrins/TinyColor">TinyColor API</a> to soften a color supplied by a user. </p>
+                <p>
+                    This is a simple app utilizing the <a href="https://github.com/bgrins/TinyColor">TinyColor API</a> to soften a color supplied by a user.
+                </p>
                 <p>Created and designed by <a href="http://www.corollari.com">Michael Lee.</a></p>
             </div>
         </div>
     </div>
+    <!-- /about -->
 </div>

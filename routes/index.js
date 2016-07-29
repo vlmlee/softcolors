@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/convert', function(req, res, next) {
-    res.sendFile('convert-form.hbs', {
+    res.sendFile('convert-colors.hbs', {
         root: path.join(__dirname, '../views')
     });
 });
@@ -38,8 +38,11 @@ router.get('/choose', function(req, res, next) {
         '#B388DD',
         '#FC7D74'
     ];
+    res.json(preselectedColors);
+});
 
-    res.sendFile('color-blocks.hbs', {
+router.get('/chooseColor', function(req, res, next) {
+    res.sendFile('color-boxes.hbs', {
         root: path.join(__dirname, '../views')
     });
 });
@@ -47,10 +50,10 @@ router.get('/choose', function(req, res, next) {
 router.get('/random', function(req, res, next) {
     var randomColors = [];
     _.times(10, function() {
-        var randomColor = tinycolor.random().desaturate(25).lighten(25).toHexString();
+        var randomColor = tinycolor.random().desaturate(10).lighten(10).toHexString();
 
         while (randomColor === '#ffffff') {
-            randomColor = tinycolor.random().desaturate(25).lighten(25).toHexString();
+            randomColor = tinycolor.random().desaturate(10).lighten(10).toHexString();
         }
 
         randomColors.push(randomColor);
