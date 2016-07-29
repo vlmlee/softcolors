@@ -50,10 +50,10 @@ router.get('/chooseColor', function(req, res, next) {
 router.get('/random', function(req, res, next) {
     var randomColors = [];
     _.times(10, function() {
-        var randomColor = tinycolor.random().desaturate(10).lighten(10).toHexString();
+        var randomColor = tinycolor.random().desaturate(15).lighten(10).toHexString();
 
         while (randomColor === '#ffffff') {
-            randomColor = tinycolor.random().desaturate(10).lighten(10).toHexString();
+            randomColor = tinycolor.random().desaturate(15).lighten(10).toHexString();
         }
 
         randomColors.push(randomColor);

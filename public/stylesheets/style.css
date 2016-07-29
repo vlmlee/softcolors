@@ -373,29 +373,9 @@ a {
 .row-1 {
   height: 20%;
   margin-bottom: 30px; }
-  .row-1 .box-1 {
-    background-color: #FF6600; }
-  .row-1 .box-2 {
-    background-color: #18AF90; }
-  .row-1 .box-3 {
-    background-color: #2F9BB7; }
-  .row-1 .box-4 {
-    background-color: #FFD65A; }
-  .row-1 .box-5 {
-    background-color: #FF884D; }
 
 .row-2 {
   height: 20%; }
-  .row-2 .box-1 {
-    background-color: #9CABE4; }
-  .row-2 .box-2 {
-    background-color: #DADADA; }
-  .row-2 .box-3 {
-    background-color: #81B9C3; }
-  .row-2 .box-4 {
-    background-color: #FC7D74; }
-  .row-2 .box-5 {
-    background-color: #4A5269; }
 
 /*-------------------*        #RANDOM
 \*-------------------*/
