@@ -104,7 +104,7 @@ function pPiling() {
     // Pagepiling -----------------------------------------------
     // More info at https: //github.com/alvarotrigo/pagePiling.js/
     $('#pagepiling').pagepiling({
-        sectionsColor: ['#f9f9f9', '#2860BF'],
+        sectionsColor: ['#fefefe', '#2860BF'],
         anchors: ['home', 'about'],
         scrollingSpeed: 1000,
         easing: 'easeInCubic'
@@ -116,18 +116,40 @@ function pPiling() {
     // ----------------------------------------------------------
 }
 
-function navigation() {
+// jQUery plugin to convert rgb values into hex
+$.cssHooks.backgroundColor = {
+    get: function(elem) {
+        if (elem.currentStyle)
+            var bg = elem.currentStyle["backgroundColor"];
+        else if (window.getComputedStyle)
+            var bg = document.defaultView.getComputedStyle(elem,
+                null).getPropertyValue("background-color");
+        if (bg.search("rgb") == -1)
+            return bg;
+        else {
+            bg = bg.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+
+            function hex(x) {
+                return ("0" + parseInt(x).toString(16)).slice(-2);
+            }
+            return "#" + hex(bg[1]) + hex(bg[2]) + hex(bg[3]);
+        }
+    }
+}
+
+function delegation() {
     // Event delegations ----------------------------------------
     // This is to make sure AJAX DOM elements are properly handled.
-    $('.content').on('submit', '#inputColorForm', function(e) {
+    $('.content').on('click', '.submit', function(e) {
         e.preventDefault();
         handlers['convertColor'].call(this, e);
     }).on('click', '.clear', function() {
         $("input").val('');
     }).on('mouseenter', '.color-box', function() {
-        $(this).children('.color-code').css({ display: 'block' });
+        var colorCode = $(this).css("backgroundColor");
+        $(this).append("<p class='color-code'>" + colorCode + "</p>");
     }).on('mouseleave', '.color-box', function() {
-        $(this).children('.color-code').css({ display: 'none' });
+        $(this).children().remove();
     });
     //-----------------------------------------------------------
 }
@@ -150,6 +172,6 @@ function genericClickHandler() {
 
 $(document).ready(function() {
     pPiling();
-    navigation();
+    delegation();
     genericClickHandler();
 });
