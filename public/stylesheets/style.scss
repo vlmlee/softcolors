@@ -8,11 +8,6 @@
 \*-------------------*/
 
 @font-face {
-    font-family: Intro;
-    src: local("Intro"), url("../fonts/IntroInline.otf");
-}
-
-@font-face {
     font-family: Montserrat-semibold;
     src: local("Montserrat-semibold"), url("../fonts/Montserrat-SemiBold.otf");
 }
@@ -177,10 +172,10 @@ form {
         font-size: 1em;
         font-family: 'Space Mono';
         height: 2.5em;
+        margin: 0 18px 0 5px;
         text-align: center;
         border: 1px #eeeeee solid;
         border-radius: 4px;
-        margin: 0 18px 0 5px;
     }
     input:-webkit-autofill {
         -webkit-box-shadow: 0 0 0px 1000px white inset;
@@ -197,19 +192,17 @@ submit {
 }
 
 .convert-button {
-    opacity: 0.8;
-    font-size: 1.4em;
-    padding: 0.5em 1.5em 0.6em 1.5em;
-    text-align: center;
-    background: linear-gradient(to bottom, white 50%, #96c5f7 50%);
-    background-size: 100% 200%;
-    background-position: top;
-    transition: all 0.5s ease;
-    border: 1px #ddd solid;
-    border-radius: 4px;
     display: block;
     float: left;
+    opacity: 0.8;
+    font-size: 1.4em;
     margin-top: 110px;
+    padding: 0.5em 1.5em 0.6em 1.5em;
+    border: 1px #ddd solid;
+    border-radius: 4px;
+    text-align: center;
+    background: #fff;
+    transition: all 0.5s ease;
 }
 
 .submit {
@@ -217,13 +210,18 @@ submit {
 }
 
 .clear {
-    margin-left: 60px;
-    margin-right: 120px;
+    margin-left: 120px;
+    margin-right: 60px;
 }
 
-.convert-button:hover {
-    background-position: bottom;
-    opacity: 0.7;
+.convert-button {
+    &:active {
+        background-color: #96c5f7;
+    }
+    &:hover {
+        opacity: 0.7;
+        animation: growInAndOut 1.5s ease infinite;
+    }
 }
 
 .convert-colors {
@@ -281,6 +279,17 @@ submit {
     @media(max-width: 640px) {
         font-size: 0.6em;
     }
+}
+
+.save {
+    display: block;
+    margin: 10% auto 0 auto;
+    height: 25px;
+    width: 25px;
+}
+
+.save:hover {
+    animation: growInAndOut 1s ease;
 }
 
 .top-buttons {
@@ -399,5 +408,17 @@ submit {
     100% {
         transform: translate3d(0, 0, 0);
         opacity: 1;
+    }
+}
+
+@keyframes growInAndOut {
+    0% {
+        transform: scale(1.0);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1.0);
     }
 }

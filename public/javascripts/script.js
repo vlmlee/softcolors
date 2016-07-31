@@ -93,7 +93,7 @@ function animateColorsIn(arr, colors) {
 function animationTiming(arr) {
     var time;
     if (!arr.length) {
-        time = 350;
+        time = 270;
     } else {
         time = 1200;
     }
@@ -147,7 +147,31 @@ function delegation() {
         $("input").val('');
     }).on('mouseenter', '.color-box', function() {
         var colorCode = $(this).css("backgroundColor");
-        $(this).append("<p class='color-code'>" + colorCode + "</p>");
+        $(this).append("<p class='color-code'>" + colorCode + "<a class='popup-with-zoom-anim' href='#copied'><img class='save' src='../images/clipboard.svg' /></a></p>");
+
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: true,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+    }).on('click', '.save', function() {
+        var tempValue = $('<input>');
+        var colorCode = $('.color-code').text();
+        $('.content').append(tempValue);
+        tempValue.val(colorCode).select();
+        document.execCommand("copy");
+        tempValue.remove();
     }).on('mouseleave', '.color-box', function() {
         $(this).children().remove();
     });
