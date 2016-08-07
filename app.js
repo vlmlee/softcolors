@@ -57,12 +57,4 @@ app.use(function(err, req, res, next) {
     });
 });
 
-var livereload = require('livereload').createServer({
-    exts: ['js', 'css', 'hbs', 'scss']
-});
-
-livereload.watch(__dirname + "/views");
-livereload.watch(__dirname + "/routes");
-livereload.watch(__dirname + "/public");
-
 module.exports = app;
