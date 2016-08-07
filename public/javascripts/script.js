@@ -91,12 +91,7 @@ function animateColorsIn(arr, colors) {
 }
 
 function animationTiming(arr) {
-    var time;
-    if (!arr.length) {
-        time = 270;
-    } else {
-        time = 1200;
-    }
+    var time = (arr.length) ? 1200 : 270;
     return time;
 }
 

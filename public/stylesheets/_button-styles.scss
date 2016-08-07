@@ -12,6 +12,13 @@
     z-index: 1;
     -webkit-backface-visibility: hidden;
     -moz-osx-font-smoothing: grayscale;
+    transition: all 1.5s ease;
+    &:active {
+        background-color: #96c5f7;
+    }
+    @media(max-width: 1200px) {
+        margin-left: -20px;
+    }
 }
 
 .button:focus {
@@ -23,36 +30,12 @@
 }
 
 
-/* Text color adjustments (we could stick to the "inherit" but that does not work well in Safari) */
-
-.bg-1 .button {
-    color: #37474f;
-    border-color: #37474f;
-}
-
-.bg-2 .button {
-    color: #ECEFF1;
-    border-color: #ECEFF1;
-}
-
-.bg-3 .button {
-    color: #fff;
-    border-color: #fff;
-}
-
-
 /* Sizes */
 
 .button--size-s {
-    font-size: 14px;
-    @media(max-width: 840px) {
-        font-size: 10px;
-    }
-    @media(max-width: 640px) {
-        font-size: 8px;
-    }
-    @media(max-width: 504px) {
-        font-size: 6px;
+    font-size: 16px;
+    @media(max-width: 1200px) {
+        font-size: 12px;
     }
 }
 
@@ -72,43 +55,15 @@
     text-transform: uppercase;
 }
 
-.button--text-thin {
-    font-weight: 300;
-}
-
-.button--text-medium {
-    font-weight: 500;
-}
-
-.button--text-thick {
-    font-weight: 600;
-}
-
-.button--round-s {
-    border-radius: 5px;
-}
-
-.button--round-m {
-    border-radius: 15px;
-}
-
 .button--round-l {
-    border-radius: 40px;
+    border-radius: 10px;
 }
 
 
 /* Borders */
 
 .button--border-thin {
-    border: 1px solid;
-}
-
-.button--border-medium {
-    border: 2px solid;
-}
-
-.button--border-thick {
-    border: 3px solid;
+    border: 1px solid #ddd;
 }
 
 
@@ -131,7 +86,7 @@
     top: 0;
     left: 0;
     opacity: 0;
-    color: #96c5f7;
+    color: #444444;
     -webkit-transform: translate3d(0, 25%, 0);
     transform: translate3d(0, 25%, 0);
 }
@@ -158,13 +113,11 @@
 }
 
 .button--winona:hover {
-    border-color: #96c5f7;
-    background-color: rgba(63, 81, 181, 0.1);
+    border-color: #ddd;
 }
 
 .button--winona.button--inverted:hover {
     border-color: #21333C;
-    background-color: #21333C;
 }
 
 .button--winona:hover::after {

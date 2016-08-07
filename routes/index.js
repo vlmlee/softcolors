@@ -20,8 +20,8 @@ router.post('/convertColor', function(req, res, next) {
     var inputColor = req.body.hex || req.body.rgb;
     colors.hex = tinycolor(inputColor).toHexString();
     colors.rgb = tinycolor(inputColor).toRgbString();
-    colors.softRgb = tinycolor(inputColor).desaturate(20).lighten(20).toRgbString();
-    colors.softHex = tinycolor(inputColor).desaturate(20).lighten(20).toHexString();
+    colors.softRgb = tinycolor(inputColor).desaturate(10).lighten(10).toRgbString();
+    colors.softHex = tinycolor(inputColor).desaturate(10).lighten(10).toHexString();
     res.json(colors);
 });
 
