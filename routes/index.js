@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var tinycolor = require('tinycolor2');
-var _ = require('underscore');
-var path = require('path');
+const express = require('express'),
+    router = express.Router(),
+    tinycolor = require('tinycolor2'),
+    _ = require('underscore'),
+    path = require('path');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -17,16 +17,16 @@ router.get('/convert', function(req, res, next) {
 
 router.post('/convertColor', function(req, res, next) {
     var colors = {};
-    var inputColor = req.body.hex || req.body.rgb;
+    const inputColor = req.body.hex || req.body.rgb;
     colors.hex = tinycolor(inputColor).toHexString();
     colors.rgb = tinycolor(inputColor).toRgbString();
-    colors.softRgb = tinycolor(inputColor).desaturate(10).lighten(10).toRgbString();
-    colors.softHex = tinycolor(inputColor).desaturate(10).lighten(10).toHexString();
+    colors.softRgb = tinycolor(inputColor).desaturate(5).lighten(5).toRgbString();
+    colors.softHex = tinycolor(inputColor).desaturate(5).lighten(5).toHexString();
     res.json(colors);
 });
 
 router.get('/choose', function(req, res, next) {
-    var preselectedColors = [
+    const preselectedColors = [
         '#FF6600',
         '#18AF90',
         '#2F9BB7',
@@ -50,10 +50,10 @@ router.get('/chooseColor', function(req, res, next) {
 router.get('/random', function(req, res, next) {
     var randomColors = [];
     _.times(10, function() {
-        var randomColor = tinycolor.random().desaturate(15).lighten(10).toHexString();
+        var randomColor = tinycolor.random().desaturate(5).lighten(10).toHexString();
 
         while (randomColor === '#ffffff') {
-            randomColor = tinycolor.random().desaturate(15).lighten(10).toHexString();
+            randomColor = tinycolor.random().desaturate(5).lighten(10).toHexString();
         }
 
         randomColors.push(randomColor);
