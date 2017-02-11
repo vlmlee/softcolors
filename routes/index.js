@@ -6,7 +6,7 @@ const express = require('express'),
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'SoftColors.io' });
+    res.render('index', { title: 'SoftColors' });
 });
 
 router.get('/convert', function(req, res, next) {
